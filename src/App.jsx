@@ -6,6 +6,7 @@ import NavLinks from "./components/NavLinks";
 import Cotegories from "./components/Categories";
 import LoginForm from "./components/LoginForm";
 import Weather from "./components/Weather";
+import UsersPage from "./pages";
 
 function App() {
   // const [isLight, setIsLight] = useState(true);
@@ -46,7 +47,8 @@ function App() {
     // <NavLinks></NavLinks>
     // <Cotegories />
     // <LoginForm />
-    <Weather />
+    // <Weather />
+    <UsersPage />
   );
 }
 
