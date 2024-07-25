@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./NavLinks.module.css";
 import NavLink from "./NavLink";
 
@@ -15,7 +15,7 @@ const NAV_LINKS = [
     menuItem: "Звуки",
     link: "#",
     hasNotifications: false,
-    isActive: true,
+    isActive: false,
   },
   {
     icon: "/icons/practice.svg",
@@ -66,25 +66,28 @@ function NavLinks() {
 
   function changeActiveLink(selectedNavLinkIndex) {
     const copyNavLinks = [...navLinks];
-
+    // Знайти індекс минулого виділеного
     const prevActiveNavLinkIndex = copyNavLinks.findIndex(
-      (nlItem) => nlItem.isActive
+      nlItem => nlItem.isActive
     );
+
+    // скидаємо для нього isActive
     if (prevActiveNavLinkIndex !== -1) {
       copyNavLinks[prevActiveNavLinkIndex].isActive = false;
     }
 
+    // встановлюємо для нового виділеного isActive
     copyNavLinks[selectedNavLinkIndex].isActive = true;
 
     setNavLinks(copyNavLinks);
   }
 
-  const mapNavList = (navLink, index) => {
+  const mapNavList = (nl, index) => {
     return (
       <NavLink
-        key={navLink.icon}
-        navLink={navLink}
-        navLinkIndex={index}
+        key={nl.icon}
+        navLink={nl}
+        linkIndex={index}
         changeActiveLink={changeActiveLink}
       />
     );

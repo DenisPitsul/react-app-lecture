@@ -1,8 +1,7 @@
-import React from "react";
-import styles from "./Categories.module.css";
 import classNames from "classnames";
+import styles from "./CategoriesList.module.css";
 
-function Cotegories() {
+function CategoriesList() {
   const categories = [
     {
       name: "Ноутбуки, планшети та комп'ютерна периферія",
@@ -27,23 +26,22 @@ function Cotegories() {
     { name: "Послуги та сервіси", link: "#", itemCount: 8 },
   ];
 
-  const mapCategoriesList = ({ name, link, itemCount }) => {
-    const linkClassName = classNames(
-      styles.link,
-      { [styles.colorGreen]: itemCount > 5000 },
-      { [styles.colorBlue]: itemCount <= 5000 }
-    );
+  const mapCatItem = ct => {
+    const linkClassName = classNames(styles.link, {
+      [styles.blueLink]: ct.itemCount <= 5000,
+      [styles.greenLink]: ct.itemCount > 5000,
+    });
 
     return (
-      <li key={name}>
-        <a className={linkClassName} href={link}>
-          {name}
+      <li key={ct.name}>
+        <a className={linkClassName} href={ct.link}>
+          {ct.name} {ct.itemCount}
         </a>
       </li>
     );
   };
 
-  return <ul className={styles.list}>{categories.map(mapCategoriesList)}</ul>;
+  return <ul>{categories.map(mapCatItem)}</ul>;
 }
 
-export default Cotegories;
+export default CategoriesList;

@@ -3,7 +3,7 @@ import Counter from "./components/Counter";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import NavLinks from "./components/NavLinks";
-import Cotegories from "./components/Categories";
+import CategoriesList from "./components/CategoriesList
 import LoginForm from "./components/LoginForm";
 import Weather from "./components/Weather";
 import UsersPage from "./pages";
@@ -45,7 +45,7 @@ function App() {
     // </div>
     // <ul>{numbersList}</ul>
     // <NavLinks></NavLinks>
-    // <Cotegories />
+    // <CategoriesList />
     // <LoginForm />
     // <Weather />
     <UsersPage />

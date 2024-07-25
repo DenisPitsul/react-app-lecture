@@ -1,29 +1,19 @@
-import React from "react";
 import classNames from "classnames";
 import styles from "./NavLinks.module.css";
 
-function NavLink({ navLink, navLinkIndex, changeActiveLink }) {
+function NavLink({ navLink: nl, linkIndex, changeActiveLink }) {
   const linkClassName = classNames(styles.navLink, {
-    [styles.activeNavLink]: navLink.isActive,
+    [styles.activeNavLink]: nl.isActive,
   });
 
-  const onLinkClickHandler = () => {
-    changeActiveLink(navLinkIndex);
+  const linkClickHandler = () => {
+    changeActiveLink(linkIndex);
   };
 
   return (
     <li>
-      <a
-        className={linkClassName}
-        onClick={onLinkClickHandler}
-        href={navLink.link}
-      >
-        <img
-          className={styles.navImg}
-          src={navLink.icon}
-          alt={navLink.menuItem}
-        />
-        {navLink.menuItem}
+      <a onClick={linkClickHandler} className={linkClassName} href={nl.link}>
+        <img className={styles.navImg} src={nl.icon} /> {nl.menuItem}
       </a>
     </li>
   );
