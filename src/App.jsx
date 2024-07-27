@@ -3,10 +3,10 @@ import Counter from "./components/Counter";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import NavLinks from "./components/NavLinks";
-import CategoriesList from "./components/CategoriesList
+import CategoriesList from "./components/CategoriesList";
 import LoginForm from "./components/LoginForm";
 import Weather from "./components/Weather";
-import UsersPage from "./pages";
+import UsersPage from "./pages/UsersPage";
 
 function App() {
   // const [isLight, setIsLight] = useState(true);
