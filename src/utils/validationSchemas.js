@@ -1,5 +1,15 @@
 import * as yup from "yup";
 
+export const USER_NAME_SCHEMA = yup.object({
+  userName: yup
+    .string()
+    .trim()
+    .min(2)
+    .max(32)
+    .matches(/^[A-Z]/)
+    .required(),
+});
+
 const LOGIN_SCHEMA = yup.object({
   login: yup.string().trim().email().required(),
   password: yup
