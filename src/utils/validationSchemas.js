@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const USER_NAME_SCHEMA = yup.object({
+const USER_NAME_SCHEMA = yup.object({
   userName: yup
     .string()
     .trim()
@@ -9,6 +9,26 @@ export const USER_NAME_SCHEMA = yup.object({
     .matches(/^[A-Z]/)
     .required(),
 });
+
+const CONTACTS_SCHEMA = yup.object({
+  userName: yup
+    .string()
+    .trim()
+    .min(2)
+    .max(32)
+    .matches(/^[A-Z]/)
+    .required(),
+  phoneNumber: yup
+    .string()
+    .trim()
+    .length(13)
+    .matches(/^\+380\d{9}$/, "Number must correspond format +380XXXXXXXXX")
+    .required(),
+  email: yup.string().email(),
+  birthday: yup.date().max(new Date()),
+});
+
+export { USER_NAME_SCHEMA, CONTACTS_SCHEMA };
 
 const LOGIN_SCHEMA = yup.object({
   login: yup.string().trim().email().required(),

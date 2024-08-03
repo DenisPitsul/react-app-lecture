@@ -1,6 +1,6 @@
-import UserForm from "./components/UserForm";
+import UserProfilePage from "./pages/UserProfilePage";
 
 function App() {
-  return <UserForm />;
+  return <UserProfilePage />;
 }
 export default App;
